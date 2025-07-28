@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/me/static/css/main.7caf3f15.css",
+    "main.js": "/me/static/js/main.47c58c01.js",
+    "static/js/453.b05d8aa5.chunk.js": "/me/static/js/453.b05d8aa5.chunk.js",
+    "static/media/ikea_dashboard.png": "/me/static/media/ikea_dashboard.f0d782a3f33f46493f3d.png",
+    "static/media/ikea_inventory.jpg": "/me/static/media/ikea_inventory.dcf44e0b1433d8e6bf5e.jpg",
+    "static/media/bg-light.png": "/me/static/media/bg-light.06db3c635b1739ac90c0.png",
+    "static/media/profile_square.jpg": "/me/static/media/profile_square.1dce3eafe3bd0c5e47c9.jpg",
+    "static/media/tamu_car.jpg": "/me/static/media/tamu_car.bac6a0400586f753bbc4.jpg",
+    "static/media/irb_assignment.png": "/me/static/media/irb_assignment.93835751300e76fef3ec.png",
+    "static/media/bg-dark.png": "/me/static/media/bg-dark.85bee5d595fd728e0675.png",
+    "index.html": "/me/index.html",
+    "main.7caf3f15.css.map": "/me/static/css/main.7caf3f15.css.map",
+    "main.47c58c01.js.map": "/me/static/js/main.47c58c01.js.map",
+    "453.b05d8aa5.chunk.js.map": "/me/static/js/453.b05d8aa5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7caf3f15.css",
+    "static/js/main.47c58c01.js"
+  ]
+}
