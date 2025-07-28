@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/me/static/css/main.7caf3f15.css",
-    "main.js": "/me/static/js/main.47c58c01.js",
+    "main.css": "/me/static/css/main.d506cb54.css",
+    "main.js": "/me/static/js/main.b85b87e1.js",
     "static/js/453.b05d8aa5.chunk.js": "/me/static/js/453.b05d8aa5.chunk.js",
     "static/media/ikea_dashboard.png": "/me/static/media/ikea_dashboard.f0d782a3f33f46493f3d.png",
     "static/media/ikea_inventory.jpg": "/me/static/media/ikea_inventory.dcf44e0b1433d8e6bf5e.jpg",
@@ -11,12 +11,12 @@
     "static/media/irb_assignment.png": "/me/static/media/irb_assignment.93835751300e76fef3ec.png",
     "static/media/bg-dark.png": "/me/static/media/bg-dark.85bee5d595fd728e0675.png",
     "index.html": "/me/index.html",
-    "main.7caf3f15.css.map": "/me/static/css/main.7caf3f15.css.map",
-    "main.47c58c01.js.map": "/me/static/js/main.47c58c01.js.map",
+    "main.d506cb54.css.map": "/me/static/css/main.d506cb54.css.map",
+    "main.b85b87e1.js.map": "/me/static/js/main.b85b87e1.js.map",
     "453.b05d8aa5.chunk.js.map": "/me/static/js/453.b05d8aa5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7caf3f15.css",
-    "static/js/main.47c58c01.js"
+    "static/css/main.d506cb54.css",
+    "static/js/main.b85b87e1.js"
   ]
 }
