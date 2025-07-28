@@ -1,0 +1,272 @@
+// Add background styling to the main container
+#publications {
+    background-color: rgb(15, 20, 26); // Slightly darker than typical dark backgrounds
+    transition: background-color 0.3s ease; // Smooth transition for theme changes
+}
+
+.publications-container {
+    padding: 2.5% 10%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.publications-header {
+    h1 {
+        color: white;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        font-weight: 700; // Added for consistency
+    }
+}
+
+.scholar-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin: 0;
+
+    a {
+        color: #4a90e2;
+        text-decoration: underline;
+
+        &:hover {
+            color: #5ba3f5;
+        }
+    }
+}
+
+.publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.publication-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.publication-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.6;
+    font-size: 1.05rem; // Added base font size for consistency
+
+    .doc-icon {
+        color: rgba(255, 255, 255, 0.6);
+        flex-shrink: 0;
+        margin-top: 0.3rem; // Slight offset to align with text baseline
+        font-size: 1.1rem;
+    }
+
+    // Content wrapper for everything except the icon
+    .publication-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        flex: 1;
+    }
+
+    // Main content line - everything in one line
+    .content-line {
+        line-height: 1.7; // Match Bio.scss line height
+        word-wrap: break-word;
+
+        .authors {
+            color: rgba(255, 255, 255, 0.8);
+
+            strong {
+                font-weight: 900;
+                color: white;
+            }
+        }
+
+        .year {
+            color: rgba(255, 255, 255, 1.0);
+        }
+
+        .title-separator {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .publication-title-link {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+                color: #5ba3f5;
+                text-decoration: underline;
+            }
+        }
+
+        .venue {
+            color: white;
+            font-weight: 500;
+        }
+    }
+
+    // Link button line
+    .link-line {
+        display: flex;
+        align-items: center;
+
+        .inline-link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: #4a90e2;
+                color: #4a90e2;
+                background: rgba(74, 144, 226, 0.1);
+            }
+
+            .link-icon {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+}
+
+// Light mode compatibility
+.light-mode {
+    #publications {
+        background-color: #f2f2f2; // Slightly darker than typical light backgrounds
+    }
+
+    .publications-header h1 {
+        color: #0d1116;
+    }
+
+    .scholar-link {
+        color: rgba(13, 17, 22, 0.7);
+
+        a {
+            color: #5000ca;
+
+            &:hover {
+                color: #6a1ae0;
+            }
+        }
+    }
+
+    .publication-content {
+        .doc-icon {
+            color: rgba(13, 17, 22, 0.6);
+        }
+
+        .content-line {
+            .authors {
+                color: rgba(13, 17, 22, 0.8);
+
+                strong {
+                    color: #0d1116;
+                }
+            }
+
+            .year {
+                color: rgba(13, 17, 22, 1.0);
+            }
+
+            .title-separator {
+                color: rgba(13, 17, 22, 0.7);
+            }
+
+            .publication-title-link {
+                color: #5000ca;
+
+                &:hover {
+                    color: #6a1ae0;
+                }
+            }
+
+            .venue {
+                color: #0d1116;
+            }
+        }
+
+        .link-line {
+            .inline-link-button {
+                border-color: rgba(13, 17, 22, 0.3);
+                color: rgba(13, 17, 22, 0.8);
+
+                &:hover {
+                    border-color: #5000ca;
+                    color: #5000ca;
+                    background: rgba(80, 0, 202, 0.1);
+                }
+
+                .link-icon {
+                color: rgba(13, 17, 22, 0.7);
+            }
+            }
+        }
+    }
+}
+
+// Responsive Design
+@media screen {
+    @media (max-width: 768px) {
+        .publications-container {
+            padding: 5% 5%;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .publications-header h1 {
+            font-size: 2rem;
+        }
+
+        .scholar-link {
+            font-size: 1rem; // Match Bio.scss responsive sizing
+        }
+
+        .publication-content {
+            font-size: 1rem; // Match Bio.scss responsive sizing
+            gap: 0.5rem;
+        }
+
+        .content-line {
+            gap: 0.3rem;
+        }
+
+        .inline-link-button {
+            font-size: 0.8rem; // Slightly larger for consistency
+        }
+    }
+
+    @media (max-width: 567px) {
+        .publications-container {
+            padding: 5% 3%;
+        }
+
+        .publications-header h1 {
+            font-size: 1.8rem;
+        }
+
+        .scholar-link {
+            font-size: 0.95rem; // Match Bio.scss responsive sizing
+        }
+
+        .publication-content {
+            font-size: 0.95rem; // Match Bio.scss responsive sizing
+        }
+
+        .inline-link-button {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+        }
+    }
+}

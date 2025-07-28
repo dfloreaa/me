@@ -1,0 +1,127 @@
+.contact-container {
+    background-color: rgb(15, 20, 26); // Slightly darker than typical dark backgrounds
+    padding: 2.5% 10%;
+    padding-bottom: 5%;
+}
+
+.contact_wrapper svg {
+    font-size: 1em;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.contact-form {
+    padding-top: 20px;
+
+    padding-top: 20px;
+
+    button {
+        float: right;
+        // Border-only styling to match publications link buttons
+        background-color: transparent;
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    button:hover {
+        border-color: #4a90e2;
+        color: #4a90e2;
+        background: rgba(74, 144, 226, 0.1);
+    }
+
+    fieldset {
+        background-color: white;
+    }
+}
+
+label {
+    font-size: 1.2rem;
+    font-family: 'DomaineDispNar-Medium', sans-serif;
+}
+
+.form-flex {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 15px;
+}
+
+.form-flex .MuiFormControl-root {
+    width: 100%;
+}
+
+form {
+    width: 100% !important;
+}
+
+.body-form {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+}
+
+// Light mode compatibility
+.light-mode {
+    .contact-container {
+        background-color: #f2f2f2; // Slightly darker than typical light backgrounds
+    }
+    .contact-form {
+        button {
+            background-color: transparent;
+            border: 1.5px solid rgba(13, 17, 22, 0.3);
+            color: rgba(13, 17, 22, 0.8);
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.0);
+        }
+
+        button:hover {
+            border-color: #5000ca;
+            color: #5000ca;
+            background: rgba(80, 0, 202, 0.1);
+        }
+
+        fieldset {
+            background-color: #f8f9fa;
+            border-color: rgba(13, 17, 22, 0.2);
+        }
+    }
+
+    label {
+        color: #0d1116;
+    }
+}
+
+// Responsive Design
+@media screen {
+    @media (max-width: 768px) {
+        .contact-container {
+            padding: 5% 5%;
+        }
+
+        .form-flex {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 567px) {
+        .contact-container {
+            padding: 5% 3%;
+        }
+
+        label {
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            padding-top: 15px;
+        }
+    }
+}
