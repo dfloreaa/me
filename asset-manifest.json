@@ -1,22 +1,30 @@
 {
   "files": {
-    "main.css": "/me/static/css/main.d506cb54.css",
-    "main.js": "/me/static/js/main.b85b87e1.js",
+    "main.css": "/me/static/css/main.e8a4dcc3.css",
+    "main.js": "/me/static/js/main.0cbe092b.js",
     "static/js/453.b05d8aa5.chunk.js": "/me/static/js/453.b05d8aa5.chunk.js",
+    "static/media/scara_arm.gif": "/me/static/media/scara_arm.e7f5763f4c80023446b9.gif",
+    "static/media/tsp.gif": "/me/static/media/tsp.b4c653747ce13f8fcdf9.gif",
+    "static/media/jlg.gif": "/me/static/media/jlg.60cd4b0e212673da42bf.gif",
     "static/media/ikea_dashboard.png": "/me/static/media/ikea_dashboard.f0d782a3f33f46493f3d.png",
+    "static/media/tamu_lab.jpg": "/me/static/media/tamu_lab.81a8630a1912466e30dc.jpg",
     "static/media/ikea_inventory.jpg": "/me/static/media/ikea_inventory.dcf44e0b1433d8e6bf5e.jpg",
     "static/media/bg-light.png": "/me/static/media/bg-light.06db3c635b1739ac90c0.png",
     "static/media/profile_square.jpg": "/me/static/media/profile_square.1dce3eafe3bd0c5e47c9.jpg",
     "static/media/tamu_car.jpg": "/me/static/media/tamu_car.bac6a0400586f753bbc4.jpg",
+    "static/media/ikea_horizontal.jpg": "/me/static/media/ikea_horizontal.7c8507aef3cc7e3575ad.jpg",
+    "static/media/caleuche.jpg": "/me/static/media/caleuche.055e1f8768b28153d5fe.jpg",
+    "static/media/jlg_10msp.jpg": "/me/static/media/jlg_10msp.de21195997cca3d96f52.jpg",
     "static/media/irb_assignment.png": "/me/static/media/irb_assignment.93835751300e76fef3ec.png",
     "static/media/bg-dark.png": "/me/static/media/bg-dark.85bee5d595fd728e0675.png",
+    "static/media/tsp_crown_6500.jpg": "/me/static/media/tsp_crown_6500.5113a39aea521f0c7c43.jpg",
     "index.html": "/me/index.html",
-    "main.d506cb54.css.map": "/me/static/css/main.d506cb54.css.map",
-    "main.b85b87e1.js.map": "/me/static/js/main.b85b87e1.js.map",
+    "main.e8a4dcc3.css.map": "/me/static/css/main.e8a4dcc3.css.map",
+    "main.0cbe092b.js.map": "/me/static/js/main.0cbe092b.js.map",
     "453.b05d8aa5.chunk.js.map": "/me/static/js/453.b05d8aa5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d506cb54.css",
-    "static/js/main.b85b87e1.js"
+    "static/css/main.e8a4dcc3.css",
+    "static/js/main.0cbe092b.js"
   ]
 }
