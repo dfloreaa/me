@@ -17,6 +17,20 @@
     }
 }
 
+.side-by-side-images {
+    display: flex;
+    gap: 16px; /* Adjust spacing as needed */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.side-by-side-images .story-image {
+    width: 100%;
+    max-width: 180px;
+    object-fit: cover;
+    border-radius: 8px; /* Optional: softens the image corners */
+}
+
 .blog-content {
     display: flex;
     flex-direction: column;
@@ -31,9 +45,10 @@
     }
 
     .project-story {
-
         border-top: 1px solid rgba(255, 255, 255, 0.15);
         padding-top: 0.5rem;
+        margin-bottom: -1rem;
+        position: relative;
         
         h2 {
             color: white;
@@ -88,10 +103,28 @@
                 max-width: 380px; // Smaller for vertical IKEA image
             }
 
+            &.all-projects {
+                max-height: 12rem;
+                max-width: 20rem;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                float: none;
+                margin: 0;
+                .story-image {
+                    max-height: calc(100vh - 46rem);
+                    width: auto;        // Change from 100% to auto
+                    max-width: 100%;    // Ensure it doesn't exceed container width
+                    object-fit: contain; // This was already there, which is good
+                }
+            }
+
             .story-image {
                 width: 100%;
                 height: auto;
                 border-radius: 12px;
+                object-fit: contain;
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
                 
@@ -109,6 +142,11 @@
                 text-align: center;
                 line-height: 1.4;
             }
+        }
+
+        // Add padding to the right to make room for the absolutely positioned image
+        &:has(.image-embed.all-projects) {
+            padding-right: 22rem;
         }
         
         // Clear floats after each story
@@ -183,11 +221,26 @@
 
 @media screen {
     @media (max-width: 1024px) {
-        .blog-content .project-story .image-embed {
-            max-width: 320px;
+        .blog-content .project-story {
+            // Reset padding and positioning for tablets and smaller
+            &:has(.image-embed.all-projects) {
+                padding-right: 0;
+            }
             
-            &.ikea-image {
-                max-width: 240px;
+            .image-embed {
+                max-width: 320px;
+                
+                &.ikea-image {
+                    max-width: 240px;
+                }
+
+                &.all-projects {
+                    // Reset absolute positioning on tablets and smaller
+                    position: static;
+                    transform: none;
+                    float: right;
+                    margin: 0 0 1.5rem 2rem;
+                }
             }
         }
     }
@@ -211,6 +264,11 @@
             .project-story {
                 margin-bottom: 3rem;
 
+                // Reset padding for mobile
+                &:has(.image-embed.all-projects) {
+                    padding-right: 0;
+                }
+
                 h2 {
                     font-size: 1.5rem;
                     margin-bottom: 1rem;
@@ -223,6 +281,14 @@
                     
                     &.ikea-image {
                         max-width: 280px;
+                    }
+
+                    &.all-projects {
+                        // Reset all positioning on mobile
+                        position: static;
+                        transform: none;
+                        float: none !important;
+                        margin: 1.5rem auto !important;
                     }
 
                     .story-image {
@@ -270,6 +336,11 @@
             .project-story {
                 margin-bottom: 2.5rem;
 
+                // Reset padding for small mobile
+                &:has(.image-embed.all-projects) {
+                    padding-right: 0;
+                }
+
                 h2 {
                     font-size: 1.3rem;
                 }
@@ -280,6 +351,14 @@
                     
                     &.ikea-image {
                         max-width: 220px;
+                    }
+
+                    &.all-projects {
+                        // Ensure positioning is reset on small mobile
+                        position: static;
+                        transform: none;
+                        float: none !important;
+                        margin: 1.2rem auto !important;
                     }
 
                     .image-caption {
@@ -297,5 +376,68 @@
                 font-size: 1rem;
             }
         }
+    }
+}
+
+.back-link {
+    margin-bottom: 1rem;
+
+    .back-to-home {
+        color: #4a90e2;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #5ba3f5;
+            text-decoration: underline;
+        }
+    }
+}
+
+.view-all-link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #5ba3f5;
+        text-decoration: underline;
+    }
+}
+
+// Light mode compatibility
+.light-mode {
+    .back-link .back-to-home {
+        color: #5000ca;
+
+        &:hover {
+            color: #6b2dd4;
+        }
+    }
+
+    .view-all-link {
+        color: #5000ca;
+
+        &:hover {
+            color: #6b2dd4;
+        }
+    }
+}
+
+// Mobile responsiveness
+@media screen and (max-width: 768px) {
+    .view-all-link {
+        display: block;
+        margin: 1rem 0 0 0;
+        text-align: center;
+    }
+
+    .back-link {
+        text-align: center;
+        margin-bottom: 1.5rem;
     }
 }

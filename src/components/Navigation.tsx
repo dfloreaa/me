@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -6,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
+import HomeIcon from '@mui/icons-material/Home';
 import IconButton from '@mui/material/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import List from '@mui/material/List';
@@ -17,11 +19,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
 const drawerWidth = 240;
-const navItems = [['About Me', 'about'], ['Publications', 'publications'], ['Projects', 'projects'], ['Contact', 'contact']];
+const navItems = [
+  ['About Me', 'about'], 
+  ['Publications', 'publications'], 
+  ['Projects', 'projects'], 
+  ['CV', 'cv']
+];
 
 function Navigation({parentToChild, modeChange}: any) {
 
   const {mode} = parentToChild;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -47,13 +56,41 @@ function Navigation({parentToChild, modeChange}: any) {
   }, []);
 
   const scrollToSection = (section: string) => {
-    console.log(section)
-    const publicationsElement = document.getElementById(section);
-    if (publicationsElement) {
-      publicationsElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', publicationsElement);  // Debugging: Ensure the element is found
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavigation = (section: string) => {
+    if (section === 'projects') {
+      // Handle Projects navigation
+      navigate('/projects');
+    } else if (section === 'cv') {  
+      navigate('/cv');
     } else {
-      console.error('Element with id "publications" not found');  // Debugging: Log error if element is not found
+      // Handle other sections (About, Publications, Contact)
+      if (location.pathname === '/') {
+        // If on home page, scroll to section
+        scrollToSection(section);
+      } else {
+        // If on other page, navigate to home first, then scroll
+        navigate('/');
+        // Small delay to ensure page has loaded before scrolling
+        setTimeout(() => {
+          scrollToSection(section);
+        }, 100);
+      }
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      // If on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // If on other page, navigate to home
+      navigate('/');
     }
   };
 
@@ -64,7 +101,7 @@ function Navigation({parentToChild, modeChange}: any) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item[0]} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => scrollToSection(item[1])}>
+            <ListItemButton sx={{ textAlign: 'center' }} onClick={() => handleNavigation(item[1])}>
               <ListItemText primary={item[0]} />
             </ListItemButton>
           </ListItem>
@@ -87,14 +124,26 @@ function Navigation({parentToChild, modeChange}: any) {
           >
             <MenuIcon />
           </IconButton>
+          
           {mode === 'dark' ? (
-            <LightModeIcon onClick={() => modeChange()}/>
+            <LightModeIcon onClick={() => modeChange()} sx={{ cursor: 'pointer', mr: 2 }}/>
           ) : (
-            <DarkModeIcon onClick={() => modeChange()}/>
+            <DarkModeIcon onClick={() => modeChange()} sx={{ cursor: 'pointer', mr: 2 }}/>
           )}
+          
+          <IconButton
+            color="inherit"
+            onClick={handleLogoClick}
+            sx={{ mr: 2 }}
+          >
+            <HomeIcon />
+          </IconButton>
+
+          <Box sx={{ flexGrow: 1 }} />
+
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
+              <Button key={item[0]} onClick={() => handleNavigation(item[1])} sx={{ color: '#fff' }}>
                 {item[0]}
               </Button>
             ))}

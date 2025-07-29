@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // Replace these with your actual image imports
 import ikeaRobotImage from '../assets/images/ikea_inventory.jpg'; // Image of you with the IKEA robot
 import dashboardImage from '../assets/images/ikea_dashboard.png'; // Image of you with the IKEA robot
@@ -13,8 +14,8 @@ function Project() {
             
             <div className="blog-content">
                 <p className="intro">
-                    These are just a few highlights from my experience in robotics. Soon, you will be able to explore 
-                    more of my projects, research works, and open-source contributions all in another separate page.
+                    These are just a few highlights from my experience in robotics. 
+                    <Link to="/projects" className="view-all-link">View all my projects →</Link>
                 </p>
 
                 <div className="project-story">
@@ -64,6 +65,7 @@ function Project() {
                         working directly with their logistics teams to validate autonomous navigation, inventory 
                         scanning accuracy, and integration with existing warehouse systems.
                     </p>
+                    <br/>
                 </div>
 
                 <div className="project-story">
@@ -99,8 +101,7 @@ function Project() {
                         been a long-held dream of mine, and this experience has reinforced my passion for education 
                         and my goal of pursuing a faculty career in robotics and autonomous systems.
                     </p>
-
-                    <br></br>
+                    <br/>
                 </div>
 
                 <div className="project-story">
@@ -134,6 +135,7 @@ function Project() {
                     <p>
                         The team successfully demonstrated autonomous navigation in challenging scenarios, including intersection turns, blocked lane avoidance, pedestrian detection, and traffic rule compliance. Testing wrapped up at MCity, Michigan, where our vehicle completed all planned maneuvers, including complex intersection handling and real-time route planning, earning us the 2nd place in the competition.
                     </p>
+                    <br/>
                 </div>
             </div>
         </div>

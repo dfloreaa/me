@@ -1,0 +1,31 @@
+# dependencies
+/node_modules
+
+# production build
+/build
+
+# misc
+.DS_Store
+.env
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# local env files
+*.local
+
+# testing
+/coverage
+
+# editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Mac system files
+*.DS_Store

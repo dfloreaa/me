@@ -1,0 +1,219 @@
+.curriculum-container {
+    padding: 2.5% 10%;
+    min-height: 100vh;
+
+    h1 {
+        color: white;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        text-align: center;
+    }
+}
+
+.pdf-viewer-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 600px;
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    .loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        z-index: 10;
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #4a90e2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    }
+
+    .error-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 2rem;
+
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    }
+
+    .pdf-display {
+        width: 100%;
+        height: 800px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+    }
+}
+
+.disclaimer {
+    text-align: center;
+    
+    p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        font-style: italic;
+        margin: 0;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.back-link {
+    margin-bottom: 1rem;
+
+    .back-to-home {
+        color: #4a90e2;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #5ba3f5;
+            text-decoration: underline;
+        }
+    }
+}
+
+// Light mode compatibility
+.light-mode {
+    .curriculum-container h1 {
+        color: #0d1116;
+    }
+
+    .pdf-viewer-container {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        .loading-overlay {
+            color: rgba(13, 17, 22, 0.7);
+            background: rgba(0, 0, 0, 0.03);
+
+            .spinner {
+                border: 3px solid rgba(0, 0, 0, 0.1);
+                border-top: 3px solid #5000ca;
+            }
+        }
+
+        .error-state {
+            color: rgba(13, 17, 22, 0.7);
+        }
+
+        .pdf-display {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .disclaimer p {
+        color: rgba(13, 17, 22, 0.6);
+    }
+
+    .back-link .back-to-home {
+        color: #5000ca;
+
+        &:hover {
+            color: #6b2dd4;
+        }
+    }
+}
+
+// Responsive design
+@media screen {
+    @media (max-width: 768px) {
+        .curriculum-container {
+            padding: 5% 5%;
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .pdf-viewer-container {
+            padding: 1rem;
+            min-height: 500px;
+
+            .pdf-display {
+                height: 600px;
+            }
+        }
+
+        .back-link {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    @media (max-width: 567px) {
+        .curriculum-container {
+            padding: 5% 3%;
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .pdf-viewer-container {
+            .loading-overlay .spinner {
+                width: 30px;
+                height: 30px;
+            }
+
+            .error-state .error-icon {
+                font-size: 2.5rem;
+            }
+
+            .pdf-display {
+                height: 500px;
+            }
+        }
+
+        .disclaimer p {
+            font-size: 0.8rem;
+        }
+    }
+}
