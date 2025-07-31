@@ -19,7 +19,7 @@
 
 .side-by-side-images {
     display: flex;
-    gap: 16px; /* Adjust spacing as needed */
+    gap: 16px;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -28,7 +28,7 @@
     width: 100%;
     max-width: 180px;
     object-fit: cover;
-    border-radius: 8px; /* Optional: softens the image corners */
+    border-radius: 8px;
 }
 
 .blog-content {
@@ -96,27 +96,33 @@
             }
             
             &.ikea-image {
-                max-width: 280px; // Smaller for vertical IKEA image
+                max-width: 280px;
             }
 
             &.dashboard-image {
-                max-width: 380px; // Smaller for vertical IKEA image
+                max-width: 380px;
             }
 
             &.all-projects {
-                max-height: 12rem;
-                max-width: 20rem;
+                // Use smaller percentages with max constraints to prevent massive sizing
+                max-height: 25vh; // Much smaller percentage of viewport height
+                max-width: 300px; // Cap the width at reasonable size
+                min-width: 200px; // Minimum width to ensure visibility
+                min-height: 120px; // Minimum height to ensure visibility
                 position: absolute;
                 right: 0;
                 top: 50%;
                 transform: translateY(-50%);
                 float: none;
                 margin: 0;
+                
                 .story-image {
-                    max-height: calc(100vh - 46rem);
-                    width: auto;        // Change from 100% to auto
-                    max-width: 100%;    // Ensure it doesn't exceed container width
-                    object-fit: contain; // This was already there, which is good
+                    // Use constrained sizing that works at all zoom levels
+                    max-height: 100%;
+                    width: auto;
+                    max-width: 100%;
+                    object-fit: contain;
+                    // Remove min dimensions from images, let container handle it
                 }
             }
 
@@ -144,12 +150,11 @@
             }
         }
 
-        // Add padding to the right to make room for the absolutely positioned image
+        // Use reasonable padding to accommodate the image
         &:has(.image-embed.all-projects) {
-            padding-right: 22rem;
+            padding-right: 320px; // Fixed pixel value that matches max-width
         }
         
-        // Clear floats after each story
         &::after {
             content: "";
             display: table;
@@ -183,7 +188,6 @@
         }
 
         .project-story {
-
             border-top: 1px solid rgba(0, 0, 0, 0.15);
 
             h2 {
@@ -222,7 +226,6 @@
 @media screen {
     @media (max-width: 1024px) {
         .blog-content .project-story {
-            // Reset padding and positioning for tablets and smaller
             &:has(.image-embed.all-projects) {
                 padding-right: 0;
             }
@@ -235,11 +238,13 @@
                 }
 
                 &.all-projects {
-                    // Reset absolute positioning on tablets and smaller
                     position: static;
                     transform: none;
                     float: right;
                     margin: 0 0 1.5rem 2rem;
+                    // Use reasonable sizing on tablets
+                    max-height: auto;
+                    max-width: 280px;
                 }
             }
         }
@@ -264,7 +269,6 @@
             .project-story {
                 margin-bottom: 3rem;
 
-                // Reset padding for mobile
                 &:has(.image-embed.all-projects) {
                     padding-right: 0;
                 }
@@ -284,15 +288,17 @@
                     }
 
                     &.all-projects {
-                        // Reset all positioning on mobile
                         position: static;
                         transform: none;
                         float: none !important;
                         margin: 1.5rem auto !important;
+                        max-height: auto;
+                        max-width: 280px;
                     }
 
                     .story-image {
                         border-radius: 8px;
+                        // Min dimensions handled by container now
                     }
 
                     .image-caption {
@@ -336,7 +342,6 @@
             .project-story {
                 margin-bottom: 2.5rem;
 
-                // Reset padding for small mobile
                 &:has(.image-embed.all-projects) {
                     padding-right: 0;
                 }
@@ -354,11 +359,12 @@
                     }
 
                     &.all-projects {
-                        // Ensure positioning is reset on small mobile
                         position: static;
                         transform: none;
                         float: none !important;
                         margin: 1.2rem auto !important;
+                        max-height: auto;
+                        max-width: 250px;
                     }
 
                     .image-caption {
